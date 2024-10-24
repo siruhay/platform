@@ -1,0 +1,16 @@
+<?php
+
+namespace $NAMESPACE$\$MODULE$\Exports;
+
+use Maatwebsite\Excel\Concerns\FromCollection;
+
+class $CLASSNAME$ implements FromCollection
+{
+    /**
+    * @return \Illuminate\Support\Collection
+    */
+    public function collection()
+    {
+        //
+    }
+}

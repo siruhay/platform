@@ -1,0 +1,69 @@
+export default {
+	path: "/$MODULE_LOWER$",
+	meta: { requiredAuth: true },
+	component: () =>
+		import(
+			/* webpackChunkName: "$MODULE_LOWER$" */ "@modules/$MODULE_LOWER$/frontend/pages/Base.vue"
+		),
+	children: [
+		{
+			path: "",
+			redirect: { name: "$MODULE_LOWER$-dashboard" },
+		},
+
+		{
+			path: "dashboard",
+			name: "$MODULE_LOWER$-dashboard",
+			component: () =>
+				import(
+					/* webpackChunkName: "$MODULE_LOWER$" */ "@modules/$MODULE_LOWER$/frontend/pages/dashboard/index.vue"
+				),
+		},
+
+		// pagename
+		// {
+		// 	path: "pagename",
+		// 	component: () =>
+		// 		import(
+		// 			/* webpackChunkName: "$MODULE_LOWER$" */ "@modules/$MODULE_LOWER$/frontend/pages/pagename/index.vue"
+		// 		),
+		// 	children: [
+		// 		{
+		// 			path: "",
+		// 			name: "$MODULE_LOWER$-pagename",
+		// 			component: () =>
+		// 				import(
+		// 					/* webpackChunkName: "$MODULE_LOWER$" */ "@modules/$MODULE_LOWER$/frontend/pages/pagename/crud/data.vue"
+		// 				),
+		// 		},
+
+		// 		{
+		// 			path: "create",
+		// 			name: "$MODULE_LOWER$-pagename-create",
+		// 			component: () =>
+		// 				import(
+		// 					/* webpackChunkName: "$MODULE_LOWER$" */ "@modules/$MODULE_LOWER$/frontend/pages/pagename/crud/create.vue"
+		// 				),
+		// 		},
+
+		// 		{
+		// 			path: ":pagename/edit",
+		// 			name: "$MODULE_LOWER$-pagename-edit",
+		// 			component: () =>
+		// 				import(
+		// 					/* webpackChunkName: "$MODULE_LOWER$" */ "@modules/$MODULE_LOWER$/frontend/pages/pagename/crud/edit.vue"
+		// 				),
+		// 		},
+
+		// 		{
+		// 			path: ":pagename/show",
+		// 			name: "$MODULE_LOWER$-pagename-show",
+		// 			component: () =>
+		// 				import(
+		// 					/* webpackChunkName: "$MODULE_LOWER$" */ "@modules/$MODULE_LOWER$/frontend/pages/pagename/crud/show.vue"
+		// 				),
+		// 		},
+		// 	],
+		// },
+	],
+};

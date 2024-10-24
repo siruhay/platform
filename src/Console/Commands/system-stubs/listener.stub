@@ -1,0 +1,26 @@
+<?php
+
+namespace $NAMESPACE$\$MODULE$\Listeners;
+
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Queue\InteractsWithQueue;
+
+class $CLASSNAME$
+{
+    /**
+     * Create the event listener.
+     */
+    public function __construct()
+    {
+        //
+    }
+
+    /**
+     * Handle the event.
+     */
+    public function handle($EVENTNAME$ $event): void
+    {
+        /** GET CURRENT MODEL */
+        $model = $event->model;
+    }
+}

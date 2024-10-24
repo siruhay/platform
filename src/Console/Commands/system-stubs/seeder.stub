@@ -1,0 +1,17 @@
+<?php
+
+namespace $NAMESPACE$$MODULE$\Seeders;
+
+use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+class $CLASSNAME$ extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        //
+    }
+}

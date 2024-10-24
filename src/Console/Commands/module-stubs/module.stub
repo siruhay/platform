@@ -1,0 +1,11 @@
+{
+    "authorEmail": "$AUTHOR_EMAIL$",
+    "authorName": "$AUTHOR_NAME$",
+    "authorVendor": "$AUTHOR_VENDOR$",
+    "connection": "$CONNECTION$",
+    "name": "$MODULE$",
+    "namespace": "$NAMESPACE$",
+    "priority": 0,
+    "disabled": false,
+    "providers": "$NAMESPACE$\\$MODULE$\\Providers\\$MODULE$ServiceProvider"   
+}

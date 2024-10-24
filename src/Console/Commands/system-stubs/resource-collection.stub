@@ -1,0 +1,68 @@
+<?php
+
+namespace $NAMESPACE$\$MODULE$\Http\Resources;
+
+use $NAMESPACE$\$MODULE$\Models\$MODEL$;
+use Illuminate\Http\Resources\Json\ResourceCollection;
+
+class $CLASSNAME$ extends ResourceCollection
+{
+    /**
+     * Transform the resource collection into an array.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
+     */
+    public function toArray($request)
+    {
+        return $MODEL_RESOURCE$::collection($this->collection);
+    }
+
+    /**
+     * Get additional data that should be returned with the resource array.
+     *
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return array
+     */
+    public function with($request): array
+    {
+        if ($request->has('initialized')) {
+            return [];
+        }
+
+        return [
+            'setups' => [
+                /** the page combo */
+                'combos' => $MODEL$::mapCombos($request),
+
+                /** the page data filter */
+                'filters' => $MODEL$::mapFilters(),
+
+                /** the table header */
+                'headers' => $MODEL$::mapHeaders($request),
+
+                /** the page icon */
+                'icon' => $MODEL$::getPageIcon('$MODULE_LOWER$-$MODEL_LOWER$'),
+
+                /** the record key */
+                'key' => $MODEL$::getDataKey(),
+
+                /** the page default */
+                'recordBase' => $MODEL$::mapRecordBase($request),
+
+                /** the page statuses */
+                'statuses' => $MODEL$::mapStatuses($request),
+
+                /** the page data mode */
+                'trashed' => $request->trashed ?: false,
+
+                /** the page title */
+                'title' => $MODEL$::getPageTitle($request, '$MODULE_LOWER$-$MODEL_LOWER$'),
+
+                /** the usetrash flag */
+                'usetrash' => $MODEL$::hasSoftDeleted(),
+            ]
+        ];
+    }
+}

@@ -1,0 +1,23 @@
+{
+	"name": "Siruhay",
+	"short_name": "SiRUHAY",
+	"icons": [
+		{
+			"src": "/pwa-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "/pwa-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any"
+		}
+	],
+	"start_url": "/",
+	"display": "fullscreen",
+	"background_color": "#5A6062",
+	"theme_color": "#5A6062",
+	"description": "Monoland Application Platform"
+}

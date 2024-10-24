@@ -1,0 +1,20 @@
+<?php
+
+namespace $NAMESPACE$\$MODULE$\Http\Resources;
+
+use $NAMESPACE$\$MODULE$\Models\$MODEL$;
+use Illuminate\Http\Resources\Json\JsonResource;
+
+class $CLASSNAME$ extends JsonResource
+{
+    /**
+     * Transform the resource into an array.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
+     */
+    public function toArray($request)
+    {
+        return $MODEL$::mapResource($request, $this);
+    }
+}

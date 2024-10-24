@@ -1,0 +1,22 @@
+<template>
+	<form-create with-helpdesk>
+		<template v-slot:default="{ record }">
+			<v-card-text>
+				<v-row dense>
+					<v-col cols="12">
+						<v-text-field
+							label="Name"
+							v-model="record.name"
+						></v-text-field>
+					</v-col>
+				</v-row>
+			</v-card-text>
+		</template>
+	</form-create>
+</template>
+
+<script>
+export default {
+	name: "$MODULE_LOWER$-$MODEL_LOWER$-create",
+};
+</script>

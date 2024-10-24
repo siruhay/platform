@@ -1,0 +1,20 @@
+{
+    "name": "$AUTHOR_VENDOR$/$NAMESPACE_LOWER$-$MODULE_LOWER$",
+    "description": "The monosoft $NAMESPACE_LOWER$ module",
+    "authors": [
+        {
+            "name": "$AUTHOR_NAME$",
+            "email": "$AUTHOR_EMAIL$"
+        }
+    ],
+    "require": {
+        "php": "^8.0.2",
+        "guzzlehttp/guzzle": "^7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "$NAMESPACE$\\$MODULE$\\": "src/",
+            "$NAMESPACE$$MODULE$\\Seeders\\": "database/seeders"
+        }
+    }
+}

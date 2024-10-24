@@ -1,0 +1,114 @@
+<?php
+
+namespace $NAMESPACE$\$MODULE$\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
+use $NAMESPACE$\$MODULE$\Models\$MODEL$;
+use $NAMESPACE$\$MODULE$\Http\Resources\$MODEL_COLLECTION$;
+use $NAMESPACE$\$MODULE$\Http\Resources\$MODEL_SHOW_RESOURCE$;
+
+class $CLASSNAME$ extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
+        Gate::authorize('view', $MODEL$::class);
+
+        return new $MODEL_COLLECTION$(
+            $MODEL$::applyMode($request->mode)
+                ->filter($request->filters)
+                ->search($request->findBy)
+                ->sortBy($request->sortBy)
+                ->paginate($request->itemsPerPage)
+        );
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        Gate::authorize('create', $MODEL$::class);
+
+        $request->validate([]);
+
+        return $MODEL$::storeRecord($request);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \$NAMESPACE$\$MODULE$\Models\$MODEL$ $$MODEL_VARIABLE$
+     * @return \Illuminate\Http\Response
+     */
+    public function show($MODEL$ $$MODEL_VARIABLE$)
+    {
+        Gate::authorize('show', $$MODEL_VARIABLE$);
+
+        return new $MODEL_SHOW_RESOURCE$($$MODEL_VARIABLE$);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  \$NAMESPACE$\$MODULE$\Models\$MODEL$ $$MODEL_VARIABLE$
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $MODEL$ $$MODEL_VARIABLE$)
+    {
+        Gate::authorize('update', $$MODEL_VARIABLE$);
+
+        $request->validate([]);
+
+        return $MODEL$::updateRecord($request, $$MODEL_VARIABLE$);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \$NAMESPACE$\$MODULE$\Models\$MODEL$ $$MODEL_VARIABLE$
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($MODEL$ $$MODEL_VARIABLE$)
+    {
+        Gate::authorize('delete', $$MODEL_VARIABLE$);
+
+        return $MODEL$::deleteRecord($$MODEL_VARIABLE$);
+    }
+
+    /**
+     * Restore the specified resource from soft-delete.
+     *
+     * @param  \$NAMESPACE$\$MODULE$\Models\$MODEL$ $$MODEL_VARIABLE$
+     * @return \Illuminate\Http\Response
+     */
+    public function restore($MODEL$ $$MODEL_VARIABLE$)
+    {
+        Gate::authorize('restore', $$MODEL_VARIABLE$);
+
+        return $MODEL$::restoreRecord($$MODEL_VARIABLE$);
+    }
+
+    /**
+     * Force Delete the specified resource from soft-delete.
+     *
+     * @param  \$NAMESPACE$\$MODULE$\Models\$MODEL$ $$MODEL_VARIABLE$
+     * @return \Illuminate\Http\Response
+     */
+    public function forceDelete($MODEL$ $$MODEL_VARIABLE$)
+    {
+        Gate::authorize('destroy', $$MODEL_VARIABLE$);
+
+        return $MODEL$::destroyRecord($$MODEL_VARIABLE$);
+    }
+}

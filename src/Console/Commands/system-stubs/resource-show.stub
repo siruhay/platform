@@ -1,0 +1,45 @@
+<?php
+
+namespace $NAMESPACE$\$MODULE$\Http\Resources;
+
+use Illuminate\Http\Resources\Json\JsonResource;
+use $NAMESPACE$\$MODULE$\Models\$MODEL$;
+use Module\System\Http\Resources\UserLogActivity;
+
+class $CLASSNAME$ extends JsonResource
+{
+    /**
+     * Transform the resource into an array.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
+     */
+    public function toArray($request)
+    {
+        return [
+            /**
+             * the record data
+             */
+            'record' => $MODEL$::mapResourceShow($request, $this),
+
+            /**
+             * the page setups
+             */
+            'setups' => [
+                'combos' => $MODEL$::mapCombos($request, $this),
+
+                'icon' => $MODEL$::getPageIcon('$MODULE_LOWER$-$MODEL_LOWER$'),
+
+                'key' => $MODEL$::getDataKey(),
+
+                'logs' => $request->activities ? UserLogActivity::collection($this->activitylogs) : null,
+
+                'softdelete' => $this->trashed() ?: false,
+
+                'statuses' => $MODEL$::mapStatuses($request, $this),
+
+                'title' => $MODEL$::getPageTitle($request, '$MODULE_LOWER$-$MODEL_LOWER$'),
+            ],
+        ];
+    }
+}

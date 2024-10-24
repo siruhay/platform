@@ -1,0 +1,14 @@
+<template>
+    <page-home
+        page-name="$MODULE_LOWER$-dashboard"
+        page-title="Untitled"
+    >
+        <template v-slot:default></template>
+    </page-home>
+</template>
+
+<script>
+export default {
+    name: "$MODULE_LOWER$-dashboard",
+};
+</script>

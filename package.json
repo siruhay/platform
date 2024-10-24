@@ -1,0 +1,42 @@
+{
+	"name": "frontend",
+	"version": "0.0.0",
+	"scripts": {
+	  "dev": "vite --mode development",
+	  "build": "vite build --mode production",
+	  "preview": "vite preview",
+	  "lint": "eslint . --fix --ignore-path .gitignore"
+	},
+	"dependencies": {
+	  "axios": "^1.6.8",
+	  "core-js": "^3.34.0",
+	  "date-fns": "3.6.0",
+	  "debounce": "^2.1.0",
+	  "pdfjs-dist": "4.5.136",
+	  "pinia": "^2.1.7",
+	  "vue": "^3.4.0",
+	  "vue-currency-input": "^3.1.0",
+	  "vuetify": "^3.5.0"
+	},
+	"devDependencies": {
+	  "@vitejs/plugin-basic-ssl": "^1.1.0",
+	  "@vitejs/plugin-vue": "^5.0.4",
+	  "eslint": "^8.57.0",
+	  "eslint-config-standard": "^17.1.0",
+	  "eslint-plugin-import": "^2.29.1",
+	  "eslint-plugin-n": "^16.6.2",
+	  "eslint-plugin-node": "^11.1.0",
+	  "eslint-plugin-promise": "^6.1.1",
+	  "eslint-plugin-vue": "^9.22.0",
+	  "laravel-vite-plugin": "^1.0",
+	  "material-design-icons-iconfont": "^6.7.0",
+	  "moment-timezone": "^0.5.45",
+	  "sass": "^1.71.1",
+	  "vite": "^5.1.5",
+	  "vite-plugin-pwa": "^0.20.0",
+	  "vite-plugin-vuetify": "^2.0.3",
+	  "vue-json-pretty": "^1.9.5",
+	  "vue-router": "^4.3.0"
+	}
+  }
+  
