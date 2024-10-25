@@ -1,6 +1,6 @@
 <?php
 
-namespace Simasten\Platform\Console\Commands;
+namespace Siruhay\Platform\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
@@ -40,7 +40,7 @@ class PlatformMakePolicy extends Command
 
         /** SET STUB FILE */
         $stubFile = __DIR__ . DIRECTORY_SEPARATOR . 'system-stubs' . DIRECTORY_SEPARATOR . 'policy.stub';
-        
+
         /** CHECK STUB IS EXISTS */
         if (!$fileSystem->exists($stubFile)) {
             $this->error('The stub file not exists.');
@@ -59,18 +59,18 @@ class PlatformMakePolicy extends Command
 
         /** SET FILE OUTPUT */
         $filepath = base_path(
-            'modules' . 
-            DIRECTORY_SEPARATOR .
-            str($module->name)->lower() . 
-            DIRECTORY_SEPARATOR .
-            'src' . 
-            DIRECTORY_SEPARATOR . 
-            'Policies'
+            'modules' .
+                DIRECTORY_SEPARATOR .
+                str($module->name)->lower() .
+                DIRECTORY_SEPARATOR .
+                'src' .
+                DIRECTORY_SEPARATOR .
+                'Policies'
         );
 
         $filename = $this->argument('name') . '.php';
         $fileOutput = $filepath . DIRECTORY_SEPARATOR . $filename;
-        
+
         /** CHECK MODEL IS EXISTS */
         if ($fileSystem->exists($fileOutput)) {
             $this->error('The policy already exists.');

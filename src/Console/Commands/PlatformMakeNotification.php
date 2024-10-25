@@ -1,6 +1,6 @@
 <?php
 
-namespace Simasten\Platform\Console\Commands;
+namespace Siruhay\Platform\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
@@ -39,7 +39,7 @@ class PlatformMakeNotification extends Command
 
         /** SET STUB FILE */
         $stubFile = __DIR__ . DIRECTORY_SEPARATOR . 'system-stubs' . DIRECTORY_SEPARATOR . 'notification.stub';
-        
+
         /** CHECK STUB IS EXISTS */
         if (!$fileSystem->exists($stubFile)) {
             $this->error('The stub file not exists.');
@@ -58,13 +58,13 @@ class PlatformMakeNotification extends Command
 
         /** SET FILE OUTPUT */
         $filepath = base_path(
-            'modules' . 
-            DIRECTORY_SEPARATOR .
-            str($module->name)->lower() . 
-            DIRECTORY_SEPARATOR .
-            'src' . 
-            DIRECTORY_SEPARATOR . 
-            'Notifications'
+            'modules' .
+                DIRECTORY_SEPARATOR .
+                str($module->name)->lower() .
+                DIRECTORY_SEPARATOR .
+                'src' .
+                DIRECTORY_SEPARATOR .
+                'Notifications'
         );
 
         /** CHECK FOLDER EXISTS */
@@ -74,7 +74,7 @@ class PlatformMakeNotification extends Command
 
         $filename = $this->argument('name') . '.php';
         $fileOutput = $filepath . DIRECTORY_SEPARATOR . $filename;
-        
+
         /** CHECK FILE IS EXISTS */
         if ($fileSystem->exists($fileOutput)) {
             $this->error('The import already exists.');

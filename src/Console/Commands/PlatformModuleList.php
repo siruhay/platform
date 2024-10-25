@@ -1,6 +1,6 @@
 <?php
 
-namespace Simasten\Platform\Console\Commands;
+namespace Siruhay\Platform\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
@@ -26,10 +26,10 @@ class PlatformModuleList extends Command
      */
     public function handle()
     {
-        $modules = []; 
+        $modules = [];
         $cacheModules = Cache::get('modules') ?: [];
 
-        foreach($cacheModules as $module) {
+        foreach ($cacheModules as $module) {
             array_push($modules, [
                 $module->namespace,
                 $module->name,
@@ -41,7 +41,7 @@ class PlatformModuleList extends Command
         }
 
         array_multisort(array_column($modules, 3), SORT_ASC, $modules);
-        
+
         $this->table(
             ['Namespace', 'Name', 'Disabled', 'Priority', 'Connection', 'Path'],
             $modules

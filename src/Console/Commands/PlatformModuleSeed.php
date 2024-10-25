@@ -1,6 +1,6 @@
 <?php
 
-namespace Simasten\Platform\Console\Commands;
+namespace Siruhay\Platform\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
@@ -36,7 +36,7 @@ class PlatformModuleSeed extends Command
 
         /** GET MODULE INFO */
         $modules = Cache::get('modules');
-        
+
         if (is_array($modules) && array_key_exists($this->option('module'), $modules)) {
             $module = $modules[$this->option('module')];
         } else {

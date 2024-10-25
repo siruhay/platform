@@ -1,6 +1,6 @@
 <?php
 
-namespace Simasten\Platform\Http\Middleware;
+namespace Siruhay\Platform\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;

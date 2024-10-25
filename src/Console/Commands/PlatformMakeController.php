@@ -1,6 +1,6 @@
 <?php
 
-namespace Simasten\Platform\Console\Commands;
+namespace Siruhay\Platform\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
@@ -45,7 +45,7 @@ class PlatformMakeController extends Command
         } else {
             $stubFile = __DIR__ . DIRECTORY_SEPARATOR . 'system-stubs' . DIRECTORY_SEPARATOR . 'controller.stub';
         }
-        
+
         /** CHECK STUB IS EXISTS */
         if (!$fileSystem->exists($stubFile)) {
             $this->error('The stub file not exists.');
@@ -64,15 +64,15 @@ class PlatformMakeController extends Command
 
         /** SET FILE OUTPUT */
         $filepath = base_path(
-            'modules' . 
-            DIRECTORY_SEPARATOR .
-            str($module->name)->lower() . 
-            DIRECTORY_SEPARATOR .
-            'src' . 
-            DIRECTORY_SEPARATOR . 
-            'Http' . 
-            DIRECTORY_SEPARATOR .
-            'Controllers'
+            'modules' .
+                DIRECTORY_SEPARATOR .
+                str($module->name)->lower() .
+                DIRECTORY_SEPARATOR .
+                'src' .
+                DIRECTORY_SEPARATOR .
+                'Http' .
+                DIRECTORY_SEPARATOR .
+                'Controllers'
         );
 
         /** CHECK FOLDER EXISTS */
@@ -82,7 +82,7 @@ class PlatformMakeController extends Command
 
         $filename = $this->argument('name') . '.php';
         $fileOutput = $filepath . DIRECTORY_SEPARATOR . $filename;
-        
+
         /** CHECK FILE IS EXISTS */
         if ($fileSystem->exists($fileOutput)) {
             $this->error('The controller already exists.');

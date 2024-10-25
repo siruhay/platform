@@ -1,6 +1,6 @@
 <?php
 
-namespace Simasten\Platform\Console\Commands;
+namespace Siruhay\Platform\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
@@ -54,37 +54,37 @@ class PlatformMakeFrontend extends Command
 
         /** DIRECTORY */
         $dirPath    = base_path(
-            'modules' . DIRECTORY_SEPARATOR . 
-            str($module->name)->lower() . DIRECTORY_SEPARATOR . 
-            'frontend' . DIRECTORY_SEPARATOR . 
-            'pages' . DIRECTORY_SEPARATOR . 
-            $directory
+            'modules' . DIRECTORY_SEPARATOR .
+                str($module->name)->lower() . DIRECTORY_SEPARATOR .
+                'frontend' . DIRECTORY_SEPARATOR .
+                'pages' . DIRECTORY_SEPARATOR .
+                $directory
         );
-        
+
         if (!$fileSystem->exists($dirPath)) {
-            $fileSystem->makeDirectory($dirPath); 
+            $fileSystem->makeDirectory($dirPath);
         }
 
         /** BLANK PAGE */
         if ($this->option('blank')) {
             /** SET STUB FILE */
             $stubFile   = __DIR__ . DIRECTORY_SEPARATOR . 'system-stubs' . DIRECTORY_SEPARATOR . 'page-index-blank.stub';
-            
+
             /** FILE */
             $fileOutput = $dirPath . DIRECTORY_SEPARATOR . 'index.vue';
         } else {
             /** DIRECTORY */
             $crudPath   = base_path(
-                'modules' . DIRECTORY_SEPARATOR . 
-                str($module->name)->lower() . DIRECTORY_SEPARATOR . 
-                'frontend' . DIRECTORY_SEPARATOR . 
-                'pages' . DIRECTORY_SEPARATOR . 
-                $directory . DIRECTORY_SEPARATOR . 
-                'crud'
+                'modules' . DIRECTORY_SEPARATOR .
+                    str($module->name)->lower() . DIRECTORY_SEPARATOR .
+                    'frontend' . DIRECTORY_SEPARATOR .
+                    'pages' . DIRECTORY_SEPARATOR .
+                    $directory . DIRECTORY_SEPARATOR .
+                    'crud'
             );
-            
+
             if (!$fileSystem->exists($crudPath)) {
-                $fileSystem->makeDirectory($crudPath); 
+                $fileSystem->makeDirectory($crudPath);
             }
 
             /** FILE */
@@ -95,7 +95,7 @@ class PlatformMakeFrontend extends Command
                 $dirPath . DIRECTORY_SEPARATOR . 'crud' . DIRECTORY_SEPARATOR . 'edit.vue',
                 $dirPath . DIRECTORY_SEPARATOR . 'crud' . DIRECTORY_SEPARATOR . 'show.vue',
             ];
-            
+
             if ($this->option('parent')) {
                 /** SET STUB FILE */
                 $stubFile = [

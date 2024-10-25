@@ -1,6 +1,6 @@
 <?php
 
-namespace Simasten\Platform;
+namespace Siruhay\Platform;
 
 use Laravel\Fortify\Fortify;
 use Illuminate\Support\Facades\URL;
@@ -9,30 +9,30 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Simasten\Platform\Http\Middleware\Impersonate;
-use Simasten\Platform\Console\Commands\PlatformInstall;
-use Simasten\Platform\Console\Commands\PlatformMakeJob;
-use Simasten\Platform\Console\Commands\PlatformMakeSeed;
-use Simasten\Platform\Console\Commands\PlatformMakeEvent;
-use Simasten\Platform\Console\Commands\PlatformMakeModel;
-use Simasten\Platform\Console\Commands\PlatformMakeExport;
-use Simasten\Platform\Console\Commands\PlatformMakeImport;
-use Simasten\Platform\Console\Commands\PlatformMakeModule;
-use Simasten\Platform\Console\Commands\PlatformMakePolicy;
-use Simasten\Platform\Console\Commands\PlatformModuleList;
-use Simasten\Platform\Console\Commands\PlatformModuleSeed;
-use Simasten\Platform\Console\Commands\PlatformMakeCommand;
-use Simasten\Platform\Console\Commands\PlatformMakeReplica;
-use Simasten\Platform\Console\Commands\PlatformModuleClone;
-use Simasten\Platform\Console\Commands\PlatformMakeFrontend;
-use Simasten\Platform\Console\Commands\PlatformMakeListener;
-use Simasten\Platform\Console\Commands\PlatformMakeResource;
-use Simasten\Platform\Console\Commands\PlatformModuleDelete;
-use Simasten\Platform\Console\Commands\PlatformMakeMigration;
-use Simasten\Platform\Console\Commands\PlatformModuleInstall;
-use Simasten\Platform\Console\Commands\PlatformModuleMigrate;
-use Simasten\Platform\Console\Commands\PlatformMakeController;
-use Simasten\Platform\Console\Commands\PlatformMakeNotification;
+use Siruhay\Platform\Http\Middleware\Impersonate;
+use Siruhay\Platform\Console\Commands\PlatformInstall;
+use Siruhay\Platform\Console\Commands\PlatformMakeJob;
+use Siruhay\Platform\Console\Commands\PlatformMakeSeed;
+use Siruhay\Platform\Console\Commands\PlatformMakeEvent;
+use Siruhay\Platform\Console\Commands\PlatformMakeModel;
+use Siruhay\Platform\Console\Commands\PlatformMakeExport;
+use Siruhay\Platform\Console\Commands\PlatformMakeImport;
+use Siruhay\Platform\Console\Commands\PlatformMakeModule;
+use Siruhay\Platform\Console\Commands\PlatformMakePolicy;
+use Siruhay\Platform\Console\Commands\PlatformModuleList;
+use Siruhay\Platform\Console\Commands\PlatformModuleSeed;
+use Siruhay\Platform\Console\Commands\PlatformMakeCommand;
+use Siruhay\Platform\Console\Commands\PlatformMakeReplica;
+use Siruhay\Platform\Console\Commands\PlatformModuleClone;
+use Siruhay\Platform\Console\Commands\PlatformMakeFrontend;
+use Siruhay\Platform\Console\Commands\PlatformMakeListener;
+use Siruhay\Platform\Console\Commands\PlatformMakeResource;
+use Siruhay\Platform\Console\Commands\PlatformModuleDelete;
+use Siruhay\Platform\Console\Commands\PlatformMakeMigration;
+use Siruhay\Platform\Console\Commands\PlatformModuleInstall;
+use Siruhay\Platform\Console\Commands\PlatformModuleMigrate;
+use Siruhay\Platform\Console\Commands\PlatformMakeController;
+use Siruhay\Platform\Console\Commands\PlatformMakeNotification;
 
 class ModularServiceProvider extends ServiceProvider
 {
@@ -70,18 +70,18 @@ class ModularServiceProvider extends ServiceProvider
             __DIR__ . '/../routes' => base_path('routes'),
             __DIR__ . '/../seeders' => database_path('seeders'),
             __DIR__ . '/../vite.config.mjs' => base_path('vite.config.mjs'),
-        ], 'simasten-config');
+        ], 'siruhay-config');
 
         $this->publishes([
             __DIR__ . '/../frontend' => resource_path(),
             __DIR__ . '/../package.json' => base_path('package.json'),
-        ], 'simasten-frontend');
+        ], 'siruhay-frontend');
 
         $this->publishes([
             __DIR__ . '/../assets' => resource_path('assets'),
             __DIR__ . '/../avatars' => resource_path('avatars'),
             __DIR__ . '/../pdfjs' => resource_path('pdfjs'),
-        ], 'simasten-assets');
+        ], 'siruhay-assets');
     }
 
     /**

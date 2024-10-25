@@ -1,6 +1,6 @@
 <?php
 
-namespace Simasten\Platform;
+namespace Siruhay\Platform;
 
 use SplFileInfo;
 use ReflectionClass;
@@ -36,21 +36,22 @@ class DiscoverEvents extends BaseDiscoveryEvents
                 continue;
             }
 
-            
+
             foreach ($listener->getMethods(ReflectionMethod::IS_PUBLIC) as $method) {
                 if ((! Str::is('handle*', $method->name) && ! Str::is('__invoke', $method->name)) ||
-                    ! isset($method->getParameters()[0])) {
+                    ! isset($method->getParameters()[0])
+                ) {
                     continue;
                 }
 
-                $listenerEvents[$listener->name.'@'.$method->name] =
-                                Reflector::getParameterClassNames($method->getParameters()[0]);
+                $listenerEvents[$listener->name . '@' . $method->name] =
+                    Reflector::getParameterClassNames($method->getParameters()[0]);
             }
         }
 
         return array_filter($listenerEvents);
     }
-    
+
     /**
      * Extract the class name from the given file path.
      *
@@ -67,11 +68,11 @@ class DiscoverEvents extends BaseDiscoveryEvents
         $class = trim(Str::replaceFirst($basePath, '', $file->getRealPath()), DIRECTORY_SEPARATOR);
 
         $module = ucfirst(Str::of($class)->before('/src')->after('modules/'));
-        
+
         $class = 'Module' . DIRECTORY_SEPARATOR . $module . Str::of($class)->after('src');
 
         return str_replace(
-            [DIRECTORY_SEPARATOR, ucfirst(basename(app()->path())).'\\'],
+            [DIRECTORY_SEPARATOR, ucfirst(basename(app()->path())) . '\\'],
             ['\\', app()->getNamespace()],
             ucfirst(Str::replaceLast('.php', '', $class))
         );

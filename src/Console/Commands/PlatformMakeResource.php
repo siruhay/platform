@@ -1,6 +1,6 @@
 <?php
 
-namespace Simasten\Platform\Console\Commands;
+namespace Siruhay\Platform\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
@@ -67,15 +67,15 @@ class PlatformMakeResource extends Command
 
         /** SET FILE OUTPUT */
         $filepath = base_path(
-            'modules' . 
-            DIRECTORY_SEPARATOR .
-            str($module->name)->lower() . 
-            DIRECTORY_SEPARATOR .
-            'src' . 
-            DIRECTORY_SEPARATOR . 
-            'Http' . 
-            DIRECTORY_SEPARATOR .
-            'Resources'
+            'modules' .
+                DIRECTORY_SEPARATOR .
+                str($module->name)->lower() .
+                DIRECTORY_SEPARATOR .
+                'src' .
+                DIRECTORY_SEPARATOR .
+                'Http' .
+                DIRECTORY_SEPARATOR .
+                'Resources'
         );
 
         $filename = $this->argument('name') . '.php';

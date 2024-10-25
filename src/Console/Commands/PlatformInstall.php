@@ -1,6 +1,6 @@
 <?php
 
-namespace Simasten\Platform\Console\Commands;
+namespace Siruhay\Platform\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
@@ -36,22 +36,22 @@ class PlatformInstall extends Command
         $this->removeFileAndFolder();
 
         $this->call('vendor:publish', [
-            '--tag' => 'simasten-config',
+            '--tag' => 'siruhay-config',
             '--force' => true
         ]);
 
         $this->call('vendor:publish', [
-            '--tag' => 'simasten-frontend',
+            '--tag' => 'siruhay-frontend',
             '--force' => true
         ]);
 
         $this->call('vendor:publish', [
-            '--tag' => 'simasten-assets',
+            '--tag' => 'siruhay-assets',
             '--force' => true
         ]);
 
         $this->call('module:clone', [
-            'repository' => 'git@github.com:simasten/mod-system.git',
+            'repository' => 'git@github.com:siruhay/mod-system.git',
             '--directory' => 'system'
         ]);
 
@@ -195,7 +195,7 @@ class PlatformInstall extends Command
         if (str_contains($content, 'SESSION_DOMAIN=null')) {
             (new Filesystem())->replaceInFile(
                 'SESSION_DOMAIN=null',
-                'SESSION_DOMAIN=.devsimasten.test',
+                'SESSION_DOMAIN=.devsiruhay.test',
                 $envFile,
             );
         }

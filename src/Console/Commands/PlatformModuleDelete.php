@@ -1,10 +1,10 @@
 <?php
 
-namespace Simasten\Platform\Console\Commands;
+namespace Siruhay\Platform\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Bus;
-use Simasten\Platform\Services\GitModule;
+use Siruhay\Platform\Services\GitModule;
 use Symfony\Component\Process\Process;
 
 class PlatformModuleDelete extends Command
