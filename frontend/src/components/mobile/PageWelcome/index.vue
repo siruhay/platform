@@ -22,7 +22,7 @@
                     />
 
                     <div class="mt-2 text-h4 font-brand">
-                        SiMAS<span class="sub-color">TEN</span>
+                        Si<span class="sub-color">RUHAY</span>
                     </div>
                 </div>
 
