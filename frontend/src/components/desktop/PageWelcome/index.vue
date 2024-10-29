@@ -26,7 +26,7 @@
                                 style="margin-left: -2px"
                             />
 
-                            <div class="ml-2 text-h4 font-brand">
+                            <div class="ml-2 mb-2 text-h3 font-brand">
                                 Si<span class="sub-color">RUHAY</span>
                             </div>
                         </div>
@@ -51,10 +51,10 @@
                                 class="d-flex justify-center text-grey-darken-1 pb-2"
                             >
                                 <div class="text-caption text-uppercase">
-                                    version 3.0.0
+                                    version 1.0.0
                                 </div>
                                 <div class="ml-4 text-caption text-uppercase">
-                                    Datin BKD &copy; 2024
+                                    DPMPD &copy; 2024
                                 </div>
                             </div>
                         </v-col>
