@@ -1,6 +1,6 @@
 {
-    "name": "siruhay/platform",
-    "description": "Siruhay Web Application Platform",
+    "name": "monoland/starterkit",
+    "description": "Monoland Web Application Platform",
     "type": "library",
     "require": {
         "laravel/framework": "^11.0",
@@ -15,13 +15,13 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Siruhay\\Platform\\": "src/"
+            "Monoland\\Platform\\": "src/"
         }
     },
     "extra": {
 		"laravel": {
 			"providers": [
-				"Siruhay\\Platform\\ModularServiceProvider"
+				"Monoland\\Platform\\ModularServiceProvider"
 			]
 		}
 	},

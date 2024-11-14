@@ -1,6 +1,6 @@
 <?php
 
-namespace Siruhay\Platform;
+namespace Monoland\Platform;
 
 use SplFileInfo;
 use ReflectionClass;

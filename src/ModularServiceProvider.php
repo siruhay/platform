@@ -1,6 +1,6 @@
 <?php
 
-namespace Siruhay\Platform;
+namespace Monoland\Platform;
 
 use Laravel\Fortify\Fortify;
 use Illuminate\Support\Facades\URL;
@@ -9,30 +9,30 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Siruhay\Platform\Http\Middleware\Impersonate;
-use Siruhay\Platform\Console\Commands\PlatformInstall;
-use Siruhay\Platform\Console\Commands\PlatformMakeJob;
-use Siruhay\Platform\Console\Commands\PlatformMakeSeed;
-use Siruhay\Platform\Console\Commands\PlatformMakeEvent;
-use Siruhay\Platform\Console\Commands\PlatformMakeModel;
-use Siruhay\Platform\Console\Commands\PlatformMakeExport;
-use Siruhay\Platform\Console\Commands\PlatformMakeImport;
-use Siruhay\Platform\Console\Commands\PlatformMakeModule;
-use Siruhay\Platform\Console\Commands\PlatformMakePolicy;
-use Siruhay\Platform\Console\Commands\PlatformModuleList;
-use Siruhay\Platform\Console\Commands\PlatformModuleSeed;
-use Siruhay\Platform\Console\Commands\PlatformMakeCommand;
-use Siruhay\Platform\Console\Commands\PlatformMakeReplica;
-use Siruhay\Platform\Console\Commands\PlatformModuleClone;
-use Siruhay\Platform\Console\Commands\PlatformMakeFrontend;
-use Siruhay\Platform\Console\Commands\PlatformMakeListener;
-use Siruhay\Platform\Console\Commands\PlatformMakeResource;
-use Siruhay\Platform\Console\Commands\PlatformModuleDelete;
-use Siruhay\Platform\Console\Commands\PlatformMakeMigration;
-use Siruhay\Platform\Console\Commands\PlatformModuleInstall;
-use Siruhay\Platform\Console\Commands\PlatformModuleMigrate;
-use Siruhay\Platform\Console\Commands\PlatformMakeController;
-use Siruhay\Platform\Console\Commands\PlatformMakeNotification;
+use Monoland\Platform\Http\Middleware\Impersonate;
+use Monoland\Platform\Console\Commands\PlatformInstall;
+use Monoland\Platform\Console\Commands\PlatformMakeJob;
+use Monoland\Platform\Console\Commands\PlatformMakeSeed;
+use Monoland\Platform\Console\Commands\PlatformMakeEvent;
+use Monoland\Platform\Console\Commands\PlatformMakeModel;
+use Monoland\Platform\Console\Commands\PlatformMakeExport;
+use Monoland\Platform\Console\Commands\PlatformMakeImport;
+use Monoland\Platform\Console\Commands\PlatformMakeModule;
+use Monoland\Platform\Console\Commands\PlatformMakePolicy;
+use Monoland\Platform\Console\Commands\PlatformModuleList;
+use Monoland\Platform\Console\Commands\PlatformModuleSeed;
+use Monoland\Platform\Console\Commands\PlatformMakeCommand;
+use Monoland\Platform\Console\Commands\PlatformMakeReplica;
+use Monoland\Platform\Console\Commands\PlatformModuleClone;
+use Monoland\Platform\Console\Commands\PlatformMakeFrontend;
+use Monoland\Platform\Console\Commands\PlatformMakeListener;
+use Monoland\Platform\Console\Commands\PlatformMakeResource;
+use Monoland\Platform\Console\Commands\PlatformModuleDelete;
+use Monoland\Platform\Console\Commands\PlatformMakeMigration;
+use Monoland\Platform\Console\Commands\PlatformModuleInstall;
+use Monoland\Platform\Console\Commands\PlatformModuleMigrate;
+use Monoland\Platform\Console\Commands\PlatformMakeController;
+use Monoland\Platform\Console\Commands\PlatformMakeNotification;
 
 class ModularServiceProvider extends ServiceProvider
 {

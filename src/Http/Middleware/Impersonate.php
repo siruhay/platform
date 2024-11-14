@@ -1,6 +1,6 @@
 <?php
 
-namespace Siruhay\Platform\Http\Middleware;
+namespace Monoland\Platform\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;

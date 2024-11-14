@@ -1,6 +1,6 @@
 <?php
 
-namespace Siruhay\Platform\Services;
+namespace Monoland\Platform\Services;
 
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;

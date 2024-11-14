@@ -1,10 +1,10 @@
 <?php
 
-namespace Siruhay\Platform\Console\Commands;
+namespace Monoland\Platform\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Bus;
-use Siruhay\Platform\Services\GitModule;
+use Monoland\Platform\Services\GitModule;
 use Symfony\Component\Process\Process;
 
 class PlatformModuleDelete extends Command
