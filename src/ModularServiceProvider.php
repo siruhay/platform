@@ -20,6 +20,7 @@ use Monoland\Platform\Console\Commands\PlatformMakeImport;
 use Monoland\Platform\Console\Commands\PlatformMakeModule;
 use Monoland\Platform\Console\Commands\PlatformMakePolicy;
 use Monoland\Platform\Console\Commands\PlatformModuleList;
+use Monoland\Platform\Console\Commands\PlatformModulePull;
 use Monoland\Platform\Console\Commands\PlatformModuleSeed;
 use Monoland\Platform\Console\Commands\PlatformMakeCommand;
 use Monoland\Platform\Console\Commands\PlatformMakeReplica;
@@ -28,6 +29,7 @@ use Monoland\Platform\Console\Commands\PlatformMakeFrontend;
 use Monoland\Platform\Console\Commands\PlatformMakeListener;
 use Monoland\Platform\Console\Commands\PlatformMakeResource;
 use Monoland\Platform\Console\Commands\PlatformModuleDelete;
+use Monoland\Platform\Console\Commands\PlatformModuleUpdate;
 use Monoland\Platform\Console\Commands\PlatformMakeMigration;
 use Monoland\Platform\Console\Commands\PlatformModuleInstall;
 use Monoland\Platform\Console\Commands\PlatformModuleMigrate;
@@ -127,7 +129,9 @@ class ModularServiceProvider extends ServiceProvider
                 PlatformModuleInstall::class,
                 PlatformModuleList::class,
                 PlatformModuleMigrate::class,
-                PlatformModuleSeed::class
+                PlatformModulePull::class,
+                PlatformModuleSeed::class,
+                PlatformModuleUpdate::class
             ]);
         }
     }

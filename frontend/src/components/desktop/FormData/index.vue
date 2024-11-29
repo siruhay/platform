@@ -126,7 +126,7 @@
         </v-container>
 
         <v-fab
-            v-if="!disableCreate && !hasSelected"
+            v-if="!hideAddnew && !hasSelected"
             class="me-9"
             color="deep-orange"
             icon="add"
@@ -153,7 +153,7 @@ export default {
             default: "chip",
         },
 
-        disableCreate: Boolean,
+        hideAddnew: Boolean,
 
         maxWidth: {
             type: [String, Number],

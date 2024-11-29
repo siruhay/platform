@@ -23,7 +23,7 @@
         <v-spacer></v-spacer>
 
         <v-btn
-            v-if="!disableCreate && !hasSelected"
+            v-if="!hideAddnew && !hasSelected"
             :color="highlight"
             icon
             @click="openFormCreate"
@@ -198,7 +198,7 @@ export default {
             default: "chip",
         },
 
-        disableCreate: Boolean,
+        hideAddnew: Boolean,
 
         navbackTo: String,
 
