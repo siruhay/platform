@@ -5,7 +5,8 @@ export class Storage {
                 try {
                     window.localStorage.setItem(
                         key,
-                        window.btoa(JSON.stringify(val))
+                        JSON.stringify(val)
+                        // window.btoa(JSON.stringify(val))
                     );
                 } catch (error) {
                     window.localStorage.removeItem(key);
@@ -15,7 +16,8 @@ export class Storage {
             getItem: (key) => {
                 try {
                     return JSON.parse(
-                        window.atob(window.localStorage.getItem(key))
+                        window.localStorage.getItem(key)
+                        // window.atob(window.localStorage.getItem(key))
                     );
                 } catch (error) {
                     return null;
@@ -31,7 +33,8 @@ export class Storage {
                 ) {
                     return (
                         JSON.parse(
-                            window.atob(window.localStorage.getItem(key))
+                            window.localStorage.getItem(key)
+                            // window.atob(window.localStorage.getItem(key))
                         ) !== undefined
                     );
                 } else {

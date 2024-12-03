@@ -65,8 +65,6 @@ export default {
     setup() {
         const store = usePageStore();
 
-        store.helpState = true;
-
         const { helpState, logs, page, theme } = storeToRefs(store);
 
         return {

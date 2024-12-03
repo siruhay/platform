@@ -179,7 +179,6 @@ export default {
         const store = usePageStore();
 
         store.helpState = false;
-        store.sidenavState = true;
 
         const {
             formStateLast,

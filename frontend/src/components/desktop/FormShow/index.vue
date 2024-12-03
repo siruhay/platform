@@ -156,6 +156,7 @@
                     :combos="combos"
                     :record="record"
                     :theme="theme"
+                    :statuses="statuses"
                     :store="store"
                 ></slot>
             </page-paper>
@@ -168,7 +169,14 @@
         </template>
 
         <template v-slot:info>
-            <slot name="info" :theme="theme"></slot>
+            <slot
+                name="info"
+                :combos="combos"
+                :record="record"
+                :statuses="statuses"
+                :theme="theme"
+                :store="store"
+            ></slot>
         </template>
 
         <template v-slot:icon>
@@ -213,6 +221,7 @@ export default {
             key,
             page,
             pageKey,
+            statuses,
             softdelete,
             record,
             theme,
@@ -236,6 +245,7 @@ export default {
             page,
             pageKey,
             record,
+            statuses,
             softdelete,
             theme,
             title,
