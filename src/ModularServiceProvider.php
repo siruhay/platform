@@ -11,30 +11,14 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Monoland\Platform\Http\Middleware\Impersonate;
 use Monoland\Platform\Console\Commands\PlatformInstall;
-use Monoland\Platform\Console\Commands\PlatformMakeJob;
-use Monoland\Platform\Console\Commands\PlatformMakeSeed;
-use Monoland\Platform\Console\Commands\PlatformMakeEvent;
-use Monoland\Platform\Console\Commands\PlatformMakeModel;
-use Monoland\Platform\Console\Commands\PlatformMakeExport;
-use Monoland\Platform\Console\Commands\PlatformMakeImport;
-use Monoland\Platform\Console\Commands\PlatformMakeModule;
-use Monoland\Platform\Console\Commands\PlatformMakePolicy;
 use Monoland\Platform\Console\Commands\PlatformModuleList;
 use Monoland\Platform\Console\Commands\PlatformModulePull;
 use Monoland\Platform\Console\Commands\PlatformModuleSeed;
-use Monoland\Platform\Console\Commands\PlatformMakeCommand;
-use Monoland\Platform\Console\Commands\PlatformMakeReplica;
 use Monoland\Platform\Console\Commands\PlatformModuleClone;
-use Monoland\Platform\Console\Commands\PlatformMakeFrontend;
-use Monoland\Platform\Console\Commands\PlatformMakeListener;
-use Monoland\Platform\Console\Commands\PlatformMakeResource;
 use Monoland\Platform\Console\Commands\PlatformModuleDelete;
 use Monoland\Platform\Console\Commands\PlatformModuleUpdate;
-use Monoland\Platform\Console\Commands\PlatformMakeMigration;
 use Monoland\Platform\Console\Commands\PlatformModuleInstall;
 use Monoland\Platform\Console\Commands\PlatformModuleMigrate;
-use Monoland\Platform\Console\Commands\PlatformMakeController;
-use Monoland\Platform\Console\Commands\PlatformMakeNotification;
 
 class ModularServiceProvider extends ServiceProvider
 {
@@ -68,21 +52,18 @@ class ModularServiceProvider extends ServiceProvider
             __DIR__ . '/../.eslintrc.js' => base_path('.eslintrc.js'),
             __DIR__ . '/../config/database.php' => config_path('database.php'),
             __DIR__ . '/../config/cors.php' => config_path('cors.php'),
+            __DIR__ . '/../config/queue.php' => config_path('queue.php'),
             __DIR__ . '/../modules' => base_path('modules'),
             __DIR__ . '/../routes' => base_path('routes'),
             __DIR__ . '/../seeders' => database_path('seeders'),
-            __DIR__ . '/../vite.config.mjs' => base_path('vite.config.mjs'),
         ], 'siruhay-config');
 
         $this->publishes([
-            __DIR__ . '/../frontend' => resource_path(),
-            __DIR__ . '/../package.json' => base_path('package.json'),
-        ], 'siruhay-frontend');
-
-        $this->publishes([
-            __DIR__ . '/../assets' => resource_path('assets'),
-            __DIR__ . '/../avatars' => resource_path('avatars'),
-            __DIR__ . '/../pdfjs' => resource_path('pdfjs'),
+            __DIR__ . '/../assets' => public_path('assets'),
+            __DIR__ . '/../avatars' => public_path('avatars'),
+            __DIR__ . '/../images' => public_path('images'),
+            __DIR__ . '/../pdfjs' => public_path('pdfjs'),
+            __DIR__ . '/../frontend/views' => resource_path('views'),
         ], 'siruhay-assets');
     }
 
@@ -93,7 +74,7 @@ class ModularServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        URL::forceScheme('https');
+        URL::forceScheme(env('URL_FORCE_SCHEMA', 'https'));
 
         Fortify::ignoreRoutes();
     }
@@ -108,22 +89,6 @@ class ModularServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                 PlatformInstall::class,
-                PlatformMakeCommand::class,
-                PlatformMakeController::class,
-                PlatformMakeEvent::class,
-                PlatformMakeExport::class,
-                PlatformMakeFrontend::class,
-                PlatformMakeImport::class,
-                PlatformMakeJob::class,
-                PlatformMakeListener::class,
-                PlatformMakeMigration::class,
-                PlatformMakeModel::class,
-                PlatformMakeModule::class,
-                PlatformMakeNotification::class,
-                PlatformMakePolicy::class,
-                PlatformMakeReplica::class,
-                PlatformMakeResource::class,
-                PlatformMakeSeed::class,
                 PlatformModuleClone::class,
                 PlatformModuleDelete::class,
                 PlatformModuleInstall::class,

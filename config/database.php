@@ -3,7 +3,7 @@
 return [
     'connections' => [
 
-        'platform' => [
+        'sqlite' => [
             'driver' => 'sqlite',
             'url' => env('DB_URL'),
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
@@ -66,7 +66,7 @@ return [
             ]) : [],
         ],
 
-        'pgsql' => [
+        'platform' => [
             'driver' => 'pgsql',
             'url' => env('DB_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
